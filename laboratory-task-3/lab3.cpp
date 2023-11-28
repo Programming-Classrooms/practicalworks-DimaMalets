@@ -23,7 +23,7 @@ void sum(double * arr, uint16_t n) {
 	}
 	std::cout << "Asddition result = " << sum1 << '\n';
 }
-void new_arr(double* arr, uint16_t n) {
+void newArr(double* arr, uint16_t n) {
 	for (int i = 0; i < n; i++)
 	{
 		if (arr[i] < 1 && arr[i] > -1)
@@ -47,43 +47,39 @@ void new_arr(double* arr, uint16_t n) {
 	{
 		std::cout << arr[i] << " ";
 	}
-	return;
 }
 void composition(double* arr, uint16_t n) {
 	 double composition1 = 1;
-	 int first = 0, last = 0, temp = 0, counter = 0;;
-	for (int i = 0; i < n; ++i)
-	{
+	 int first = 0, last = 0, temp = 0, counter = 0;
+	 for (int i = 0; i < n; ++i)
+	 {
 		if (arr[i] < 0) {
 			counter++;
 		}
-	}
-	for (int i = 0; i < n; ++i)
-	{
-
+	 }
+	 for (int i = 0; i < n; ++i)
+	 {
 		if (arr[i] < 0) {
 			last = i;
 		}
-	}
-	for (int i = 0; i < n; ++i)
-	{
+	 }
+	 for (int i = 0; i < n; ++i)
+	 {
 		if (arr[i] < 0) {
 			first = i;
 			break;
 		}
-	}
+	 }
 	for (int i = 0; i < n; ++i) {
 		if (arr[i] > 0 )
 		{
 			temp++;
-
 		}
 	}
 	for (int i = 0; i < n; ++i) {
 		if (arr[i] < 0 && arr[i + 1] < 0)
 		{
 			temp = 1;
-
 		}
 	}
 	if (temp == n )
@@ -116,16 +112,14 @@ void random(double * arr, uint16_t n) {
 			arr[i] = left_border + rand() * (right_border - left_border) / RAND_MAX;
 		}
 	}
-	return;
 }
-void arr_dis(double* arr, uint16_t n) {
+void arrDis(double* arr, uint16_t n) {
 	for (int i = 0; i < n; ++i) {
 		std::cout << arr[i] << " ";
 		}
 	std::cout << '\n';
-	return;
 }
-void fill_option(double * arr, uint16_t n) {
+void fillOption(double * arr, uint16_t n) {
 	size_t op;
 	std::cout << "If you want to fill the array automatically, enter (0) and specify the bounds, otherwise enter (1) and fill the array \n";
 	std::cin >> op;
@@ -140,12 +134,12 @@ void fill_option(double * arr, uint16_t n) {
 		break;
 	}
 }
-int enter_n(uint16_t& n, const int16_t N) {
+int enterSize(uint16_t& n, const int16_t N) {
 	std::cout << "Enter the number of array elements \n";
 	std::cin >> n;
 	if (n <= 0 || n > N) {
 		std::cout << "incorrect data" << '\n';
-		return enter_n(n, N);
+		return enterSize(n, N);
 	}
 	else {
 		return n;
@@ -157,11 +151,12 @@ int main()
 	double arr[N];
 	uint16_t n = 0;
 	srand(time(0));
-	enter_n(n, N);
-	fill_option(arr, n);
-	arr_dis(arr, n);
+	enterSize(n, N);
+	fillOption(arr, n);
+	arrDis(arr, n);
 	sum(arr, n);
 	composition(arr, n);
-	new_arr(arr, n);
+	newArr(arr, n);
 	return 0;
+	
 }
