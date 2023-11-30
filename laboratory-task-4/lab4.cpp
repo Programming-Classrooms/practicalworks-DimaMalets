@@ -1,5 +1,11 @@
 #include <iostream>
 #include <iomanip>
+
+//Вариант 6
+//В целочисленной прямоугольной матрице найти:
+//- сумму элементов в тех строках, которые не содержат нулей;
+//- переставить местами 1-ый и последний столбец, 2-ой и предпоследний и т. д.
+
 void enterSize(size_t& size_i, size_t& size_j) {
 	std::cout << "Enter the number of rows and columns " << '\n';
 	while (size_i <= 0 || size_j <= 0) {
