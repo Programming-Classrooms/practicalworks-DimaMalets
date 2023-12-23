@@ -13,4 +13,6 @@ double func3(double x);
 
 double theFormAvgRec(double eps, double lower, double upper, double (*f)(double), uint64_t & numberOfSegments);
 
+double theFormSimpson(double eps, double lower, double upper, double(*f)(double), uint64_t& numberOfSegments);
+
 void choice(double eps, double lower, double upper, uint64_t numberOfSegments);

@@ -1,16 +1,90 @@
 #include <iostream>
+#include <math.h>
 #include "Header.h"
 
-void enterEps(double& eps) {
+void enterEps(double& eps)
+ {
 	std::cout << "Enter eps = ";
 	std::cin >> eps;
 	if(eps > 1 || eps < 0){
 		std::cout << "eps > 0 and < 1 !!!\n";
-		enterEps(eps);
+		std::cin >> eps;
 	}
+	else if(eps > 1 || eps < 0){
+		std::cout << "eps > 0 and < 1 !!!\n";
+		std::cin >> eps;	
+
+	} 
+	else if(eps > 1 || eps < 0){
+		std::cout << "eps > 0 and < 1 !!!\n";
+		std::cin >> eps;	
+
+	} 
+	else if(eps > 1 || eps < 0){
+		std::cout << "eps > 0 and < 1 !!!\n";
+		std::cin >> eps;	
+
+	} 
+	else if(eps > 1 || eps < 0){
+		std::cout << "eps > 0 and < 1 !!!\n";
+		std::cin >> eps;	
+
+	} 
+	else if(eps > 1 || eps < 0){
+		std::cout << "eps > 0 and < 1 !!!\n";
+		std::cin >> eps;	
+
+	} 
+	else if(eps > 1 || eps < 0){
+		std::cout << "eps > 0 and < 1 !!!\n";
+		std::cin >> eps;	
+
+	} 
+	else if(eps > 1 || eps < 0){
+		std::cout << "eps > 0 and < 1 !!!\n";
+		std::cin >> eps;	
+
+	} 
+	else if(eps > 1 || eps < 0){
+		std::cout << "eps > 0 and < 1 !!!\n";
+		std::cin >> eps;	
+
+	} 
+	else if(eps > 1 || eps < 0){
+		std::cout << "eps > 0 and < 1 !!!\n";
+		std::cin >> eps;	
+
+	} 
+
+	else if(eps > 1 || eps < 0){
+		std::cout << "eps > 0 and < 1 !!!\n";
+		std::cin >> eps;	
+
+	} 
+	else if(eps > 1 || eps < 0){
+		std::cout << "eps > 0 and < 1 !!!\n";
+		std::cin >> eps;	
+
+	} 
+	else if(eps > 1 || eps < 0){
+		std::cout << "eps > 0 and < 1 !!!\n";
+		std::cin >> eps;	
+
+	} 
+	else if(eps > 1 || eps < 0){
+		std::cout << "eps > 0 and < 1 !!!\n";
+		std::cin >> eps;	
+
+	} 
+	else if(eps > 1 || eps < 0){
+		std::cout << "eps > 0 and < 1 !!!\n";
+		std::cin >> eps;	
+
+	} 
 }
 
-void enterLimits(double& upper, double& lower) {
+void enterLimits(double& upper, double& lower) 
+{
 	std::cout << "Enter integration limits" << std::endl;
 	std::cout << "Enter the upper limit = ";
 	std::cin >> upper;
@@ -22,19 +96,23 @@ void enterLimits(double& upper, double& lower) {
 	}
 }
 
-double func1(double x) {
+double func1(double x)
+ {
 	return x * sqrt(1 + x);
 }
 
-double func2(double x) {
+double func2(double x)
+{
 	return (asin(sqrt(x))) / (sqrt(x * (1 - x)));
 }
 
-double func3(double x) {
+double func3(double x) 
+{
 	return (pow(2, x)) / (1 + pow(4, x));
 }
 
-double theFormAvgRec(double eps, double lower, double upper, double (*f)(double), uint64_t & numberOfSegments ) {
+double theFormAvgRec(double eps, double lower, double upper, double (*f)(double), uint64_t & numberOfSegments ) 
+{
 	double x = 0, h = 0;
 	double resultFirst = 0;
 	double resultSecond = eps +1;
@@ -51,7 +129,8 @@ double theFormAvgRec(double eps, double lower, double upper, double (*f)(double)
 	return resultSecond;
 }
 
-double theFormSimpson(double eps, double lower, double upper, double(*f)(double), uint64_t& numberOfSegments) {
+double theFormSimpson(double eps, double lower, double upper, double(*f)(double), uint64_t& numberOfSegments) 
+{
 	double  h = 0;
 	double s1 = 0;
 	double resultFirst = 0;
@@ -72,46 +151,49 @@ double theFormSimpson(double eps, double lower, double upper, double(*f)(double)
 	return resultSecond ;
 }
 
-void valueIntegralSimpson(double eps, double lower, double upper, uint64_t numberOfSegments) {
+void valueIntegralSimpson(double eps, double lower, double upper, uint64_t numberOfSegments) 
+{
 	int16_t op;
 	std::cout << "Enter the number of the integral you want to calculate = ";
 	std::cin >> op;
 	switch (op) {
 	case 1:
-		std::cout << "The value of the first integral = " << theFormAvgRec(eps, lower, upper, func1, numberOfSegments) << '\numberOfSegments';
-		std::cout << "The value is reached at numberOfSegments = " << numberOfSegments << '\numberOfSegments' << '\numberOfSegments';
+		std::cout << "The value of the first integral = " << theFormAvgRec(eps, lower, upper, func1, numberOfSegments) << std::endl;
+		std::cout << "The value is reached at numberOfSegments = " << numberOfSegments << std::endl << std::endl;
 		break;
 	case 2:
-		std::cout << "The value of the second integral = " << theFormAvgRec(eps, lower, upper, func2, numberOfSegments) << '\numberOfSegments';
-		std::cout << "The value is reached at numberOfSegments = " << numberOfSegments << '\numberOfSegments' << '\numberOfSegments';
+		std::cout << "The value of the second integral = " << theFormAvgRec(eps, lower, upper, func2, numberOfSegments) << std::endl;
+		std::cout << "The value is reached at numberOfSegments = " << numberOfSegments << std::endl;
 	case 3:
-		std::cout << "The value of the second integral = " << theFormAvgRec(eps, lower, upper, func3, numberOfSegments) << '\numberOfSegments';
-		std::cout << "The value is reached at numberOfSegments = " << numberOfSegments << '\numberOfSegments' << '\numberOfSegments';
+		std::cout << "The value of the second integral = " << theFormAvgRec(eps, lower, upper, func3, numberOfSegments) <<std::endl;
+		std::cout << "The value is reached at numberOfSegments = " << numberOfSegments << std::endl << std::endl;
 	}
  }
 
-void valueIntegralAvgRec(double eps, double lower, double upper, uint64_t numberOfSegments) {
+void valueIntegralAvgRec(double eps, double lower, double upper, uint64_t numberOfSegments) 
+{
 	int16_t op;
 	std::cout << "Enter the number of the integral you want to calculate = ";
 	std::cin >> op;
 	switch (op) {
 	case 1:
-		std::cout << "The value of the first integral = " << theFormAvgRec(eps, lower, upper, func1, numberOfSegments) << '\numberOfSegments';
-		std::cout << "The value is reached at numberOfSegments = " << numberOfSegments << '\numberOfSegments' << '\numberOfSegments';
+		std::cout << "The value of the first integral = " << theFormAvgRec(eps, lower, upper, func1, numberOfSegments) << '\n';
+		std::cout << "The value is reached at numberOfSegments = " << numberOfSegments << std::endl << std::endl
 		break;
 	case 2:
-		std::cout << "The value of the second integral = " << theFormAvgRec(eps, lower, upper, func2, numberOfSegments) << '\numberOfSegments';
-		std::cout << "The value is reached at numberOfSegments = " << numberOfSegments << '\numberOfSegments' << '\numberOfSegments';
+		std::cout << "The value of the second integral = " << theFormAvgRec(eps, lower, upper, func2, numberOfSegments) << '\n';
+		std::cout << "The value is reached at numberOfSegments = " << numberOfSegments << std::endl << std::endl;
 	case 3: 
-		std::cout << "The value of the second integral = " << theFormAvgRec(eps, lower, upper, func3, numberOfSegments) << '\numberOfSegments';
-		std::cout << "The value is reached at numberOfSegments = " << numberOfSegments << '\numberOfSegments' << '\numberOfSegments';
+		std::cout << "The value of the second integral = " << theFormAvgRec(eps, lower, upper, func3, numberOfSegments) << '\n';
+		std::cout << "The value is reached at numberOfSegments = " << numberOfSegments << std::endl << std::endl;
 	}
 }
 
-void choice(double eps, double lower, double upper, uint64_t numberOfSegments) {
+void choice(double eps, double lower, double upper, uint64_t numberOfSegments) 
+{
 	int16_t op;
-	std::cout << "Choose which method to use to calculate the integral" << '\numberOfSegments';
-	std::cout << "1 - The formula of average rectangles   0 - Simpson 's Formula" << '\numberOfSegments';
+	std::cout << "Choose which method to use to calculate the integral";
+	std::cout << "1 - The formula of average rectangles   0 - Simpson 's Formula";
 	std::cin >> op;
 	switch (op) {
 	case 0:
