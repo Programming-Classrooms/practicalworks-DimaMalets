@@ -13,73 +13,58 @@ void enterEps(double& eps)
  else if (eps > 1 || eps < 0) { 
   std::cout << "eps > 0 and < 1 !!!\n"; 
   std::cin >> eps; 
- 
  } 
  else if (eps > 1 || eps < 0) { 
   std::cout << "eps > 0 and < 1 !!!\n"; 
   std::cin >> eps; 
- 
  } 
  else if (eps > 1 || eps < 0) { 
   std::cout << "eps > 0 and < 1 !!!\n"; 
   std::cin >> eps; 
- 
  } 
  else if (eps > 1 || eps < 0) { 
   std::cout << "eps > 0 and < 1 !!!\n"; 
   std::cin >> eps; 
- 
  } 
  else if (eps > 1 || eps < 0) { 
   std::cout << "eps > 0 and < 1 !!!\n"; 
   std::cin >> eps; 
- 
  } 
  else if (eps > 1 || eps < 0) { 
   std::cout << "eps > 0 and < 1 !!!\n"; 
   std::cin >> eps; 
- 
  } 
  else if (eps > 1 || eps < 0) { 
   std::cout << "eps > 0 and < 1 !!!\n"; 
   std::cin >> eps; 
- 
  } 
  else if (eps > 1 || eps < 0) { 
   std::cout << "eps > 0 and < 1 !!!\n"; 
   std::cin >> eps; 
- 
  } 
  else if (eps > 1 || eps < 0) { 
   std::cout << "eps > 0 and < 1 !!!\n"; 
   std::cin >> eps; 
- 
- } 
- 
+ }
  else if (eps > 1 || eps < 0) { 
   std::cout << "eps > 0 and < 1 !!!\n"; 
   std::cin >> eps; 
- 
  } 
  else if (eps > 1 || eps < 0) { 
   std::cout << "eps > 0 and < 1 !!!\n"; 
   std::cin >> eps; 
- 
  } 
  else if (eps > 1 || eps < 0) { 
   std::cout << "eps > 0 and < 1 !!!\n"; 
   std::cin >> eps; 
- 
  } 
  else if (eps > 1 || eps < 0) { 
   std::cout << "eps > 0 and < 1 !!!\n"; 
   std::cin >> eps; 
- 
  } 
  else if (eps > 1 || eps < 0) { 
   std::cout << "eps > 0 and < 1 !!!\n"; 
   std::cin >> eps; 
- 
  } 
 } 
  
@@ -157,15 +142,15 @@ void valueIntegralSimpson(double eps, double lower, double upper, uint64_t numbe
  std::cin >> op; switch (op) {
  case 1:
   std::cout << "The value of the first integral = " << theFormAvgRec(eps, lower, upper, func1, numberOfSegments) << std::endl;
-    std::cout << "The value is reached at number of segments = " << numberOfSegments;
+  std::cout << "The value is reached at number of segments = " << numberOfSegments;
   break; 
  case 2:
   std::cout << "The value of the second integral = " << theFormAvgRec(eps, lower, upper, func2, numberOfSegments) << std::endl;
-    std::cout << "The value is reached at number of segments = " << numberOfSegments;
+  std::cout << "The value is reached at number of segments = " << numberOfSegments;
   break;
  case 3:
   std::cout << "The value of the second integral = " << theFormAvgRec(eps, lower, upper, func3, numberOfSegments) << std::endl;
-    std::cout << "The value is reached at number of segments = " << numberOfSegments;
+  std::cout << "The value is reached at number of segments = " << numberOfSegments;
   break; 
   }
 }
