@@ -19,13 +19,10 @@ void inputNumber(int32_t& number)
 void suchePythagorasTripeln(int32_t number) 
 { 
  for (size_t i = 1; i <= number; i++) { 
-
-  for (size_t j = 1; j <= number; j++) { 
-
-   for (size_t m = 1; m <= number; m++) { 
-
-    if (m * m + j * j == i * i /*&& j < m*/) { 
-     std::cout << j << " " << m << " " << i << '\n'; 
+   for (size_t j = 1; j <= number; j++) { 
+     for (size_t m = 1; m <= number; m++) { 
+       if (m * m + j * j == i * i /*&& j < m*/) { 
+         std::cout << j << " " << m << " " << i << '\n'; 
     } 
    } 
   } 
