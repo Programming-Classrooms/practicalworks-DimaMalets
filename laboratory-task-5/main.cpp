@@ -15,7 +15,7 @@
 int main() { 
  uint64_t numberOfSegments = 4; 
  double eps{0}, lower{0}, upper{0}; 
- enterLimits(upper, lower); 
+ enterIntegrationLimits(upper, lower); 
  enterEps(eps); 
- choice(eps, lower, upper, numberOfSegments); 
+ choosIntegral(eps, lower, upper, numberOfSegments); 
 }

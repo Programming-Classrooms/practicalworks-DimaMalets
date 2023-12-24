@@ -6,69 +6,13 @@ void enterEps(double& eps)
 { 
  std::cout << "Enter eps = "; 
  std::cin >> eps; 
- if (eps > 1 || eps < 0) { 
-  std::cout << "eps > 0 and < 1 !!!\n"; 
-  std::cin >> eps; 
- } 
- else if (eps > 1 || eps < 0) { 
-  std::cout << "eps > 0 and < 1 !!!\n"; 
-  std::cin >> eps; 
- } 
- else if (eps > 1 || eps < 0) { 
-  std::cout << "eps > 0 and < 1 !!!\n"; 
-  std::cin >> eps; 
- } 
- else if (eps > 1 || eps < 0) { 
-  std::cout << "eps > 0 and < 1 !!!\n"; 
-  std::cin >> eps; 
- } 
- else if (eps > 1 || eps < 0) { 
-  std::cout << "eps > 0 and < 1 !!!\n"; 
-  std::cin >> eps; 
- } 
- else if (eps > 1 || eps < 0) { 
-  std::cout << "eps > 0 and < 1 !!!\n"; 
-  std::cin >> eps; 
- } 
- else if (eps > 1 || eps < 0) { 
-  std::cout << "eps > 0 and < 1 !!!\n"; 
-  std::cin >> eps; 
- } 
- else if (eps > 1 || eps < 0) { 
-  std::cout << "eps > 0 and < 1 !!!\n"; 
-  std::cin >> eps; 
- } 
- else if (eps > 1 || eps < 0) { 
-  std::cout << "eps > 0 and < 1 !!!\n"; 
-  std::cin >> eps; 
- } 
- else if (eps > 1 || eps < 0) { 
-  std::cout << "eps > 0 and < 1 !!!\n"; 
+ while (eps > 1 || eps < 0) { 
+  std::cout << "Enter eps (eps > 1 || eps < 0) = "; 
   std::cin >> eps; 
  }
- else if (eps > 1 || eps < 0) { 
-  std::cout << "eps > 0 and < 1 !!!\n"; 
-  std::cin >> eps; 
- } 
- else if (eps > 1 || eps < 0) { 
-  std::cout << "eps > 0 and < 1 !!!\n"; 
-  std::cin >> eps; 
- } 
- else if (eps > 1 || eps < 0) { 
-  std::cout << "eps > 0 and < 1 !!!\n"; 
-  std::cin >> eps; 
- } 
- else if (eps > 1 || eps < 0) { 
-  std::cout << "eps > 0 and < 1 !!!\n"; 
-  std::cin >> eps; 
- } 
- else if (eps > 1 || eps < 0) { 
-  std::cout << "eps > 0 and < 1 !!!\n"; 
-  std::cin >> eps; 
- } 
 } 
  
-void enterLimits(double& upper, double& lower) 
+void enterIntegrationLimits(double& upper, double& lower) 
 { 
  std::cout << "Enter integration limits" << std::endl; 
  std::cout << "Enter the upper limit = "; 
@@ -77,7 +21,7 @@ void enterLimits(double& upper, double& lower)
  std::cin >> lower; 
  if (upper <= lower) { 
   std::cout << "invalid value" << std::endl; 
-  enterLimits(upper, lower); 
+  enteringIntegrationLimits(upper, lower); 
  } 
 } 
  
@@ -173,15 +117,17 @@ void valueIntegralAvgRec(double eps, double lower, double upper, uint64_t number
   }
  }
 
-void choice(double eps, double lower, double upper, uint64_t numberOfSegments)
+void choosIntegral(double eps, double lower, double upper, uint64_t numberOfSegments)
 { int16_t op;
- std::cout << "Choose which method to use to calculate the integral\n"; std::cout << "1 - The formula of average rectangles   0 - Simpson 's Formula\n";
+ std::cout << "Choose which method to use to calculate the integral\n";
+ std::cout << "1 - The formula of average rectangles   0 - Simpson 's Formula\n";
  std::cin >> op; 
  switch (op) {
- case 0:  valueIntegralSimpson(eps, lower, upper, numberOfSegments);
+ case 0:  
+   valueIntegralSimpson(eps, lower, upper, numberOfSegments);
    break; 
   case 1:
-  valueIntegralAvgRec(eps, lower, upper, numberOfSegments);  
+   valueIntegralAvgRec(eps, lower, upper, numberOfSegments);  
    break;
  }
 }
