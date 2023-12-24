@@ -9,72 +9,27 @@
 #include <iostream> 
 #include <iomanip> 
  
-void enterSize(int16_t& size_i, int16_t& size_j) 
+void enterNumberOfRowsAndColumns(int16_t& numberOfLines, int16_t& numberOfColumns) 
 { 
  std::cout << "Enter the number of rows and columns " << '\n'; 
- std::cin >> size_i; 
- std::cin >> size_j; 
- if (size_i <= 0 || size_j <= 0) { 
-  std::cout << "Enter the number of rows and columns " << '\n'; 
-  std::cin >> size_i; 
-  std::cin >> size_j; 
- } 
-  if (size_i <= 0 || size_j <= 0) { 
-  std::cout << "Enter the number of rows and columns " << '\n'; 
-  std::cin >> size_i; 
-  std::cin >> size_j; 
- } 
-  if (size_i <= 0 || size_j <= 0) { 
-  std::cout << "Enter the number of rows and columns " << '\n'; 
-  std::cin >> size_i; 
-  std::cin >> size_j; 
- } 
-  if (size_i <= 0 || size_j <= 0) { 
-  std::cout << "Enter the number of rows and columns (NATURAL NUMBER!!!!)" << '\n'; 
-  std::cin >> size_i; 
-  std::cin >> size_j; 
- } 
-  if (size_i <= 0 || size_j <= 0) { 
-  std::cout << "Enter the number of rows and columns " << '\n'; 
-  std::cin >> size_i; 
-  std::cin >> size_j; 
- } 
-  if (size_i <= 0 || size_j <= 0) { 
-  std::cout << "Enter the number of rows and columns " << '\n'; 
-  std::cin >> size_i; 
-  std::cin >> size_j; 
- } 
-  if (size_i <= 0 || size_j <= 0) { 
-  std::cout << "Enter the number of rows and columns " << '\n'; 
-  std::cin >> size_i; 
-  std::cin >> size_j; 
- } 
-  if (size_i <= 0 || size_j <= 0) { 
-  std::cout << "Enter the number of rows and columns " << '\n'; 
-  std::cin >> size_i; 
-  std::cin >> size_j; 
- } 
-  if (size_i <= 0 || size_j <= 0) { 
-  std::cout << "Enter the number of rows and columns " << '\n'; 
-  std::cin >> size_i; 
-  std::cin >> size_j; 
- } 
-  if (size_i <= 0 || size_j <= 0) { 
-  std::cout << "Enter the number of rows and columns " << '\n'; 
-  std::cin >> size_i; 
-  std::cin >> size_j; 
- } 
+ std::cin >> numberOfLines; 
+ std::cin >> numberOfColumns; 
+ while(numberOfLines <= 0 || numberOfColumns <= 0) {
+ std::cout << "Enter the number of rows and columns " << '\n'; 
+ std::cin >> numberOfLines; 
+ std::cin >> numberOfColumns; 
+}
 } 
  
-void newMemory(int32_t**& matrix, int16_t size_i, int16_t size_j) 
+void allocationMemoryForTheMatrix(int32_t**& matrix, int16_t numberOfLines, int16_t numberOfColumns) 
 { 
- matrix = new int* [size_i]; 
- for (size_t i = 0; i < size_i; ++i) { 
-  matrix[i] = new int[size_j]; 
+ matrix = new int* [numberOfLines]; 
+ for (size_t i = 0; i < numberOfLines; ++i) { 
+  matrix[i] = new int[numberOfColumns]; 
  } 
 } 
  
-void random(int32_t** matrix, int16_t size_i, int16_t size_j) 
+void FillingWithRandomNumbers(int32_t** matrix, int16_t numberOfLines, int16_t numberOfColumns) 
 { 
  int16_t  first = 0, last = 0; 
  std::cout << "indicate boundaries from = "; 
@@ -85,8 +40,8 @@ void random(int32_t** matrix, int16_t size_i, int16_t size_j)
   std::cout << "incorrect range"; 
  } 
  else { 
-  for (size_t i = 0; i < size_i; ++i) { 
-   for (size_t j = 0; j < size_j; ++j) { 
+  for (size_t i = 0; i < numberOfLines; ++i) { 
+   for (size_t j = 0; j < numberOfColumns; ++j) { 
     int16_t temp = rand() % (last  - first ) + first ; 
     matrix[i][j] = temp; 
    } 
@@ -94,16 +49,16 @@ void random(int32_t** matrix, int16_t size_i, int16_t size_j)
  } 
 } 
  
-void inputElements(int32_t** matrix, int16_t size_i, int16_t size_j) 
+void inputElementsMtrx(int32_t** matrix, int16_t numberOfLines, int16_t numberOfColumns) 
 { 
- for (size_t i = 0; i < size_i; ++i) { 
-  for (size_t j = 0; j < size_j; ++j) { 
+ for (size_t i = 0; i < numberOfLines; ++i) { 
+  for (size_t j = 0; j < numberOfColumns; ++j) { 
    std::cin >> matrix[i][j]; 
   } 
  } 
 } 
  
-void selctionInput(int32_t** matrix, int16_t size_i, int16_t size_j) 
+void choosingTheFillingMtrx(int32_t** matrix, int16_t numberOfLines, int16_t numberOfColumns) 
 { 
  size_t op; 
  std::cout << " random - 1, keyboard input - 0 \n"; 
@@ -113,21 +68,21 @@ void selctionInput(int32_t** matrix, int16_t size_i, int16_t size_j)
  default:std::cout << "1 and 0"; 
   break; 
  case 0: 
-  inputElements(matrix, size_i, size_j); 
+  inputElementsMtrx(matrix, numberOfLines, numberOfColumns); 
   break; 
  case 1: 
-  random(matrix, size_i, size_j); 
+  FillingWithRandomNumbers(matrix, numberOfLines, numberOfColumns); 
   break; 
  
  } 
 } 
  
-void sumElementsStr(int32_t** matrix, int16_t size_i, int16_t size_j) { 
+void sumOfTheItemsInTheRow(int32_t** matrix, int16_t numberOfLines, int16_t numberOfColumns) { 
  int64_t sum = 0; 
  bool isExist = true; 
  size_t counter = 0; 
- for (size_t i = 0; i < size_i; ++i) { 
-  for (size_t j = 0; j < size_j; ++j) { 
+ for (size_t i = 0; i < numberOfLines; ++i) { 
+  for (size_t j = 0; j < numberOfColumns; ++j) { 
    if (matrix[i][j] != 0) { 
     sum += matrix[i][j]; 
    } 
@@ -142,48 +97,48 @@ void sumElementsStr(int32_t** matrix, int16_t size_i, int16_t size_j) {
   } 
   sum = 0; 
  } 
- if (counter == size_i) { 
+ if (counter == numberOfLines) { 
   std::cout << "All lines contain 0" << std::endl; 
  } 
  std::cout << std::endl; 
 } 
  
-void swapColumns(int32_t** matrix, int16_t size_i, int16_t size_j) 
+void swapColumns(int32_t** matrix, int16_t numberOfLines, int16_t numberOfColumns) 
 { 
- for (size_t i = 0; i < size_i; ++i) { 
-  for (size_t j = 0; j < size_j / 2; ++j) { 
-   std::swap(matrix[i][j], matrix[i][size_j - 1 - j]); 
+ for (size_t i = 0; i < numberOfLines; ++i) { 
+  for (size_t j = 0; j < numberOfColumns / 2; ++j) { 
+   std::swap(matrix[i][j], matrix[i][numberOfColumns - 1 - j]); 
   } 
  } 
 } 
  
-void outputMatrix(int32_t** matrix, int16_t size_i, int16_t size_j)
+void printMatrix(int32_t** matrix, int16_t numberOfLines, int16_t numberOfColumns)
 {
- for (size_t i = 0; i < size_i; ++i) {  
-	for (size_t j = 0; j < size_j; ++j) {
+ for (size_t i = 0; i < numberOfLines; ++i) {  
+	for (size_t j = 0; j < numberOfColumns; ++j) {
    std::cout << std::setw(3) << matrix[i][j] << " ";  }
   std::cout << std::endl; }
  std::cout << '\n';}
 
-void clearingMemory(int32_t**& matrix, int16_t size_i)
+void clearMemory(int32_t**& matrix, int16_t numberOfLines)
 { 
-  for (size_t i = 0; i < size_i; ++i) {
+  for (size_t i = 0; i < numberOfLines; ++i) {
   delete[] matrix[i]; 
   }
  delete[] matrix;
  }
 
 int main() { 
-int16_t size_i = 0, size_j = 0;
-enterSize(size_i, size_j); 
+int16_t numberOfLines = 0, numberOfColumns = 0;
+enterNumberOfRowsAndColumns(numberOfLines, numberOfColumns); 
 int32_t** matrix = nullptr;
-newMemory(matrix, size_i, size_j); 
-selctionInput(matrix, size_i, size_j);
+allocationMemoryForTheMatrix(matrix, numberOfLines, numberOfColumns); 
+choosingTheFillingMtrx(matrix, numberOfLines, numberOfColumns);
 system("cls"); 
-outputMatrix(matrix, size_i, size_j);
-sumElementsStr(matrix, size_i, size_j); 
-swapColumns(matrix, size_i, size_j);
-outputMatrix(matrix, size_i, size_j); 
-clearingMemory(matrix, size_i);
+printMatrix(matrix, numberOfLines, numberOfColumns);
+sumOfTheItemsInTheRow(matrix, numberOfLines, numberOfColumns); 
+swapColumns(matrix, numberOfLines, numberOfColumns);
+outputMatrix(matrix, numberOfLines, numberOfColumns); 
+clearMemory(matrix, numberOfLines);
 }
 
