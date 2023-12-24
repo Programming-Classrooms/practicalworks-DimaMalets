@@ -5,6 +5,7 @@
  
 #include <iostream> 
  
+
 void inputNumber(int32_t& number)  
 { 
  std::cout << "Enter natural number = "; 
@@ -28,6 +29,7 @@ void suchePythagorasTripeln(int32_t number)
   } 
  } 
 } 
+
 int main() 
 { 
    int32_t number { 0 }; 

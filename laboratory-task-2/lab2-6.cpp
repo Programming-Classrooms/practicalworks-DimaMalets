@@ -2,8 +2,10 @@
     6. выполняет разложение числа на простые множители. 
 */ 
  
+ 
 #include <iostream> 
  
+
 void inputNumber(int32_t& number)  
 { 
     std::cout << "Enter natural number = "; 

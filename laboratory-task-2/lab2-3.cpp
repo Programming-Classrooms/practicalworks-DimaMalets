@@ -7,6 +7,7 @@
 #include <iostream> 
 #include<iomanip> 
  
+ 
 void inputNumber(int32_t& number) 
 { 
     std::cout << "Input natural number:\n"; 
