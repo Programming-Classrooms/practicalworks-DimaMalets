@@ -10,12 +10,12 @@
 #include "Header.hpp" 
  
 int main() { 
- std::string line; 
- size_t counter = 0; 
- size_t reserveCounter = 0; 
- std::string newLine; 
- std::string delim = " /.,:;'  "; 
- inputAndCheckLine(line); 
- searchWords(line, delim, newLine, counter, reserveCounter); 
- std::cout << newLine; 
+    std::string line; 
+    size_t counter = 0; 
+    size_t reserveCounter = 0; 
+    std::string newLine; 
+    std::string delim = " /.,:;'  "; 
+    inputAndCheckLine(line); 
+    searchWords(line, delim, newLine, counter, reserveCounter); 
+    std::cout << newLine; 
 }
