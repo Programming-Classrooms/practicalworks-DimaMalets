@@ -11,36 +11,10 @@ void inputNumber(int32_t& number)
 { 
     std::cout << "Input natural number:\n"; 
     std::cin >> number; 
-    if (number <= 0) { 
-        std::cout << "Not a natural!!!\n"; 
-        std::cout << "Input natural number:\n"; 
-        std::cin >> number; 
-    } 
-    if (number <= 0) { 
-        std::cout << "Not a natural!!!\n"; 
-        std::cout << "Input natural number:\n"; 
-        std::cin >> number; 
-    } 
-    if (number <= 0) { 
-        std::cout << "Not a natural!!!\n"; 
-        std::cout << "Input natural number:\n"; 
-        std::cin >> number; 
-    } 
-    if (number <= 0) { 
-        std::cout << "Not a natural!!!\n"; 
-        std::cout << "Input natural number:\n"; 
-        std::cin >> number; 
-    } 
-    if (number <= 0) { 
-        std::cout << "Not a natural!!!\n"; 
-        std::cout << "Input natural number:\n"; 
-        std::cin >> number; 
-    } 
-    if (number <= 0) { 
-        std::cout << "Not a natural!!!\n"; 
-        std::cout << "Input natural number:\n"; 
-        std::cin >> number; 
-    } 
+    while(number <= 0) { 
+     std::cout << "Input natural number:\n"; 
+     std::cin >> number; 
+    }
 } 
  
 int main() 

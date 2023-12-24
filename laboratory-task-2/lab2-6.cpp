@@ -8,30 +8,10 @@ void inputNumber(int32_t& number)
 { 
     std::cout << "Enter natural number = "; 
     std::cin >> number; 
-    if (number <= 0) { 
-        std::cout << "is a not natural number!!!\n"; 
-        std::cin >> number; 
-    } 
-    if (number <= 0) { 
-        std::cout << "is a not natural number!!!\n"; 
-        std::cin >> number; 
-    } 
-    if (number <= 0) { 
-        std::cout << "is a not natural number!!!\n"; 
-        std::cin >> number; 
-    } 
-    if (number <= 0) { 
-        std::cout << "is a not natural number!!!\n"; 
-        std::cin >> number; 
-    } 
-    if (number <= 0) { 
-        std::cout << "is a not natural number!!!\n"; 
-        std::cin >> number; 
-    } 
-    if (number <= 0) { 
-        std::cout << "is a not natural number!!!\n"; 
-        std::cin >> number; 
-    } 
+    while(number <= 0) { 
+     std::cout << "Enter natural number = "; 
+     std::cin >> number; 
+    }
 } 
  
 void simpleDivisors(int32_t& divisor, int32_t number) 
