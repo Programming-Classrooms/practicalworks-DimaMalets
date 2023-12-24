@@ -166,7 +166,8 @@ void outputMatrix(int32_t** matrix, int16_t size_i, int16_t size_j)
  std::cout << '\n';}
 
 void clearingMemory(int32_t**& matrix, int16_t size_i)
-{ for (size_t i = 0; i < size_i; ++i) {
+{ 
+  for (size_t i = 0; i < size_i; ++i) {
   delete[] matrix[i]; 
   }
  delete[] matrix;
