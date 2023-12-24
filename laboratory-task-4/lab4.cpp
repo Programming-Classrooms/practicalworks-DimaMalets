@@ -122,9 +122,9 @@ void selctionInput(int32_t** matrix, int16_t size_i, int16_t size_j)
  } 
 } 
  
-void sumStr(int32_t** matrix, int16_t size_i, int16_t size_j) { 
+void sumElementsStr(int32_t** matrix, int16_t size_i, int16_t size_j) { 
  int64_t sum = 0; 
- bool is_exist = true; 
+ bool isExist = true; 
  size_t counter = 0; 
  for (size_t i = 0; i < size_i; ++i) { 
   for (size_t j = 0; j < size_j; ++j) { 
@@ -133,11 +133,11 @@ void sumStr(int32_t** matrix, int16_t size_i, int16_t size_j) {
    } 
    else { 
     ++counter; 
-    is_exist = false; 
+    isExist = false; 
     break; 
    } 
   } 
-  if (is_exist) { 
+  if (isExist) { 
    std::cout << " sum str - " << i + 1 << " = " << sum << std::endl; 
   } 
   sum = 0; 
@@ -181,8 +181,9 @@ newMemory(matrix, size_i, size_j);
 selctionInput(matrix, size_i, size_j);
 system("cls"); 
 outputMatrix(matrix, size_i, size_j);
-sumStr(matrix, size_i, size_j); 
+sumElementsStr(matrix, size_i, size_j); 
 swapColumns(matrix, size_i, size_j);
 outputMatrix(matrix, size_i, size_j); 
 clearingMemory(matrix, size_i);
 }
+
