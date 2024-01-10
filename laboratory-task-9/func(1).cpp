@@ -41,6 +41,7 @@ bool checkPalindrom(std::string word)
 std::string searchWords(std::string delims, std::string line, size_t & counterMax, std::string& newLine)
 {
 	std::string word;
+	std::string emptyLine;
 	std::string::size_type begInd;
 	begInd = line.find_first_not_of(delims);
 	while (begInd != std::string::npos) {
@@ -70,7 +71,7 @@ std::string searchWords(std::string delims, std::string line, size_t & counterMa
 		}
 		begInd = line.find_first_not_of(delims, endInd);
 	}
-	return "";
+	return emptyLine;
 
 }
 
