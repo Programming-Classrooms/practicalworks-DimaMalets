@@ -3,6 +3,7 @@
 #include <fstream>
 #include "Header.hpp"
 
+
 void checkFile(std::fstream& fin)
 {
 	if (!fin.good()) {

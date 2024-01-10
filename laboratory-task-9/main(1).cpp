@@ -29,11 +29,9 @@ int main() {
 			createNewLine(newLine);
 		}
 		fin.close();
-
 	}
 	catch (std::exception e) {
 		std::cout << e.what();
 	}
 	return 0;
-
 }
