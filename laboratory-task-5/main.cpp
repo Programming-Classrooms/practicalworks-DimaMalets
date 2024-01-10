@@ -12,10 +12,12 @@
 #include <stdint.h> 
 #include "Header.hpp" 
  
+
 int main() { 
  uint64_t numberOfSegments = 4; 
  double eps{0}, lower{0}, upper{0}; 
  enterIntegrationLimits(upper, lower); 
  enterEps(eps); 
- choosIntegral(eps, lower, upper, numberOfSegments); 
+ choosingMethod(eps, lower, upper, numberOfSegments); 
+ return 0;
 }
