@@ -9,7 +9,7 @@ void inputAndCheckLine(std::string& line)
  getline(std::cin, line); 
 
  if (line.empty() == true) { 
-  std::cout << "Line is empty"; 
+ throw std::exception {"Line is empty"}; 
  } 
 } 
  
