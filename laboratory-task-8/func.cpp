@@ -2,10 +2,12 @@
 #include <string> 
 #include "Header.hpp" 
  
+
 void inputAndCheckLine(std::string& line) 
 { 
  std::cout << "Enter the line \n"; 
  getline(std::cin, line); 
+
  if (line.empty() == true) { 
   std::cout << "Line is empty"; 
  } 
@@ -24,6 +26,7 @@ void searchWords(std::string line, std::string delim,std::string& newLine, size_
 { 
     std::string::size_type begInd; 
     std::string word; 
+    
     begInd = line.find_first_not_of(delim); 
     while (begInd != std::string::npos) { 
         std::string::size_type endInd; 

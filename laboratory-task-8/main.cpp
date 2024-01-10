@@ -9,6 +9,7 @@
 #include <iostream> 
 #include "Header.hpp" 
  
+ 
 int main() { 
     std::string line; 
     size_t counter = 0; 
@@ -18,4 +19,5 @@ int main() {
     inputAndCheckLine(line); 
     searchWords(line, delim, newLine, counter, reserveCounter); 
     std::cout << newLine; 
+    return 0;
 }
