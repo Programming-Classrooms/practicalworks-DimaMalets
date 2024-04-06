@@ -5,7 +5,7 @@
 /* Сокращение дроби */
 void Fraction::reduce()
 {
-	uint32_t divisor = std::gcd(this->numerator, this->denominator);
+	int32_t divisor = std::gcd(this->numerator, this->denominator);
     if (divisor != 1) {
         this->numerator /= divisor;
         this->denominator /= divisor;
