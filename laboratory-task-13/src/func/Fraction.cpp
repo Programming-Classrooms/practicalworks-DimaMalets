@@ -52,7 +52,7 @@ int32_t Fraction::getDenominator() const
     return denominator;
 }
 
-                    ///    Арифметические операции    \\\
+                    ///    Арифметические операции    
 
 /* Сложение (дробь + дробь) */
 Fraction Fraction::operator+(const Fraction& rhs)const
@@ -170,7 +170,7 @@ Fraction operator/(const int32_t& num, const Fraction& rhs)
 
 }
 
-                ///   Операторы сравнения   \\\
+                ///   Операторы сравнения   
 
 bool Fraction::operator==(const Fraction& rhs) const
 {
@@ -203,7 +203,7 @@ Fraction& Fraction::operator=(const Fraction& rhs)
     return *this;
 }
 
-            /// Составные операторы присваивания \\\
+            /// Составные операторы присваивания 
 
  /* Составное сложение */
 Fraction& Fraction::operator+=(const Fraction& rhs)
@@ -261,7 +261,7 @@ Fraction& Fraction::operator/=(const int& num)
     return *this;
 }
 
-               ///  Унарные операторы \\\
+               ///  Унарные операторы 
 
     /* Постфиксное */
 Fraction Fraction::operator++(int)
@@ -328,6 +328,11 @@ std::istream& operator>>(std::istream& in , Fraction& rhs)
                     /* Перегрузка оператора вывода */
 std::ostream& operator<<(std::ostream& out, Fraction& rhs)
 {
+    if(rhs.numerator == 0){
+        out << 0;
+    }
+    else{
     out << rhs.numerator << "/" << rhs.denominator;
+    }
     return out;
 }

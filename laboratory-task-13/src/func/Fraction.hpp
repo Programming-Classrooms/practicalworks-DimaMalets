@@ -21,7 +21,7 @@ public:
 
 	// Конструкторы //
 	Fraction(); 
-	Fraction(int32_t num =0,int32_t denom =1);
+	Fraction(int32_t num =0 ,int32_t denom =1);
 	Fraction(const Fraction&);
 
 	// Деструктор //
