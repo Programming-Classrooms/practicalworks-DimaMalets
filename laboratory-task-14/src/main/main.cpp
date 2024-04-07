@@ -124,4 +124,5 @@ while(op !=5 && counter < size)
 
 int main() {
 	menu();
+	return 0;
 }
