@@ -33,7 +33,7 @@ while(op !=5 && counter < size)
 		char buffer[2000];
     	size_t cource = 0;
     	size_t group = 0;
-    	std::cout << "Enter surname and name: ";
+    	std::cout << "Enter fullname: ";
     	std::cin.ignore();
     	std::cin.getline(buffer, 2000);
     	std::cout << "\nEnter cource: ";
@@ -49,7 +49,7 @@ while(op !=5 && counter < size)
 		/* Добавление профессора в массив */
 		char buffer[2000];
     	char buffer2[2000];
-    	std::cout << "Enter name and surname: ";
+    	std::cout << "Enter name fullname: ";
     	std::cin.ignore();
     	std::cin.getline(buffer, 2000);
     	std::cout << "\nEnter name department: ";

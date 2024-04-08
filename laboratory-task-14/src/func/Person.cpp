@@ -58,20 +58,15 @@ void Person::print(std::ostream & out) const
 /* Перегрузка оператора ввода */
 std::istream& operator>>(std::istream& in,  Person& rhs)
 {
-	std::cout << "Enter --> Suname \n";
+	std::cout << "Enter fullname : ";
 	char buffer[2048];
-	in >> buffer;
-	std::cout << "Enter --> Name \n";
-	char buffer2[2048];
-	in >> buffer2;
+	in.getline(buffer, 2048);
 	if (rhs.fullName) {
 		delete[] rhs.fullName;
 		rhs.fullName = nullptr;
 	}
-	rhs.fullName = new char[strlen(buffer) + strlen(buffer2) +1];
+	rhs.fullName = new char[strlen(buffer) +1];
 	strcpy(rhs.fullName, buffer);
-	strcat(rhs.fullName," ");
-	strcat(rhs.fullName,buffer2);
 	return in;
 }
 
