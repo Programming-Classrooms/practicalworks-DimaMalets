@@ -1,4 +1,4 @@
-#include "../func/Student.hpp"
+#include "../func/Student2.hpp"
 
 #include <gtest/gtest.h>
 #include <stdexcept>

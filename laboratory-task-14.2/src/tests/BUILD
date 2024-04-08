@@ -1,4 +1,4 @@
-
+ь рлмчсячя
 cc_test(
     name = "tests",
     srcs = ["test.cpp"],

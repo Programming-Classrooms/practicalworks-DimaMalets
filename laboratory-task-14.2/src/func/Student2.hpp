@@ -17,6 +17,7 @@ class Student
 	 const int16_t creditNumber;
 
 	public:
+
 	 //Конструкторы
 	 Student() = delete;
 	 Student(std::string,int16_t,int16_t,const int16_t);
@@ -37,7 +38,11 @@ class Student
 	  int16_t getGroup() const;
 	  int16_t getCreditNumber() const;
 	  
+	  // Перегрузка оператора вывода
+	  friend std::ostream& operator <<(std::ostream&,const Student&);
 
+	  // Виртуальная метод вывода
+	  virtual void print(std::ostream&)const;
 };
 
 #endif // STUDENT2_HPP
