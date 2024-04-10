@@ -111,7 +111,7 @@ void ContainerTrees::readFile(std::istream & in)
     size_t storageDuration;
     Tree* newTree = nullptr;
 
-    while(in >> type) {
+    while(in >> typeEnum) {
         if((typeEnum == tempCon) || (typeEnum == tempDec)) {
             in >> name;
             in >> age;
