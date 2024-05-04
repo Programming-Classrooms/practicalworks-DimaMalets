@@ -1,3 +1,6 @@
+#ifndef FUNCTION_HPP
+#define FUNCTION_HPP
+
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -24,3 +27,6 @@ void createFIO(Student*, int16_t);
 
 /* Вывод в текстовый файл Groups.txt */
 void createGroups(Student*,int16_t);
+
+#endif //Function.hpp
+
