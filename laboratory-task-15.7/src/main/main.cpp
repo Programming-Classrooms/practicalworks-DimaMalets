@@ -30,7 +30,9 @@ void fillVector(std::vector<Train>& myVector)
 
 void printByRange(const std::vector<Train>& myVector)
 {
-    std::cout << "\nВведите нужный диапазон в формате ЧЧ:ММ\n";
+    std::cout << "\n*************************************\n";
+    std::cout << "Введите нужный диапазон в формате ЧЧ:ММ";
+    std::cout << "\n*************************************\n";
     std::cout << "От: ";
     std::string start;
     std::cin >> start;
@@ -47,33 +49,49 @@ void printByRange(const std::vector<Train>& myVector)
 
 void printByDestName(const std::vector<Train>& myVector)
 {
-    std::cout << "\nВведите нужный пункт назначения\n";
+    std::cout << "\n*************************************\n";
+    std::cout << "Введите нужный пункт назначения\n";
+    std::cout << "\n*************************************\n";
     std::string name;
     std::cin >> name;
+    bool flag = false;
     for(auto& elem : myVector){
         if(elem.geDestantionName() == name){
             std::cout << "\nСписок поездов направляющихся в : " << name << std::endl;
             std::cout << elem;
+            flag = true;
         }
+    }
+    if(!flag){
+         std::cout << "\nВ данный пункт назначения поезда не направляются\n";
     }
 }
 
 void printByDestNameFast(const std::vector<Train>& myVector)
 {
+    std::cout << "\n*************************************\n";
     std::cout << "\nВведите нужный пункт назначения\n";
+    std::cout << "\n*************************************\n";
     std::string name;
+    bool flag = false;
     std::cin >> name;
     for(auto& elem : myVector){
         if(elem.geDestantionName() == name && elem.getType() == typeTrain::Fast){
-            std::cout << "\nСписок скорых поездов направляющихся в : " << name << std::endl;
+            std::cout << "\nСписок скоростных поездов направляющихся в : " << name << std::endl;
             std::cout << elem;
+            flag = true;
         }
+    }
+    if(!flag){
+        std::cout << "\nВ данный пункт назначения скоростные поезда не направляются\n";
     }
 }
 
 void seekFastest(const std::vector<Train>& myVector)
 {
+    std::cout << "\n*************************************\n";
     std::cout << "\nВведите нужный пункт назначения\n";
+    std::cout << "\n*************************************\n";
     std::string name;
     std::cin >> name;
     Train temp(1,"test",typeTrain::Passenger,"00:00","43221454:12");
@@ -84,7 +102,12 @@ void seekFastest(const std::vector<Train>& myVector)
             flag = true;
         }
     }
+     if(!flag){
+         std::cout << "\nВ данный пункт назначения поезда не направляются\n";
+    }
+    else{
     std::cout << "\nСамый быстрый поезд: \n" << temp;
+    }
 }
 
 
@@ -92,7 +115,9 @@ int main()
  {
      std::vector<Train> myVector;
      fillVector(myVector);
-     std::cout << "\nСортировка по времени отправления: \n";
+     std::cout << "\n*************************************";
+     std::cout << "Сортировка по времени отправления: \n";
+     std::cout << "\n*************************************";
      std::sort(myVector.begin(), myVector.end(), [](Train& a, Train& b){return a < b;});
      for(auto& elem : myVector){
         std::cout << elem << "\n";

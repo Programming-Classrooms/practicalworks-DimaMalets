@@ -1,3 +1,5 @@
 1643 Minsk Passenger 12:35 01:45
 1647 Vitebsk Passenger 21:35 01:40
-1645 Mozyr Passenger 15:35 03:50
+1645 Mozyr Fast 09:15 03:50
+1645 Brest Fast 11:20 02:10
+1645 Kalinkovichi Passenger 17:35 03:20

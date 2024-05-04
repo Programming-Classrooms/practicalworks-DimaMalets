@@ -21,13 +21,14 @@ class Train
     /* Конструктор с параметрами */
     Train(int16_t, std::string, typeTrain, std::string, std::string);
     
+    /* Геттеры */
     typeTrain getType() const;
     std::string getTimeInRoad() const;
     std::string getDepTime() const;
     std::string geDestantionName() const;
     
+    /* Перегрузка операторов */
     Train&  operator = (const Train& rhs);
-
     bool operator < (const Train& rhs);
     friend std::ostream& operator <<(std::ostream &,const Train&);
 };
