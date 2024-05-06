@@ -95,6 +95,16 @@ inline void TDeque<TInfo>::DeleteItem(TDequeItem * ptr)
 {
     TDequeItem* slow = front;
     TDequeItem* fast = front->next;
+    if(front == ptr)
+    {
+        DelFront();
+        return;
+    }
+    if(rear == ptr)
+    {
+        DelRear();
+        return;
+    }
     while(fast != ptr && fast != nullptr)
     {
         slow = slow->next;
@@ -102,13 +112,26 @@ inline void TDeque<TInfo>::DeleteItem(TDequeItem * ptr)
     }
     if(fast == nullptr)
     {
-        throw std::runtime_error ("")
+        throw std::runtime_error ("ptr not found");
+    }
+    else
+    {
+        slow->next = fast->next;
+        delete fast;
+        slow = nullptr;
+        delete slow;
     }
 }
 
 template <typename TInfo>
 inline TDeque<TInfo>::TDeque() : size(0), front(nullptr), rear(nullptr)
 {}
+
+template <typename TInfo>
+inline TDeque<TInfo>::TDeque(const TDeque &rhs)
+{
+    this->Clone(rhs);
+}
 
 template <typename TInfo>
 inline TDeque<TInfo>::~TDeque()
@@ -216,6 +239,12 @@ inline bool TDeque<TInfo>::DelRear()
         return true;
     }
     return false;
+}
+
+template <typename TInfo>
+inline const TDeque<TInfo>& TDeque<TInfo>::operator=(const TDeque & rhs)
+{
+    return *this->Clone(rhs);
 }
 
 template <typename TInfo>
