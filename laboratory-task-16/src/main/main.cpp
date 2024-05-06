@@ -8,5 +8,7 @@ int main()
     a.InsFront(5);
     a.InsFront(6);
     a.InsRear(7);
+    a.InsRear(8);
+    a.DelRear();
     a.Print();
 }

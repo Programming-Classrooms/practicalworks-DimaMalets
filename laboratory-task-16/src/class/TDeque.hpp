@@ -50,9 +50,9 @@ void InsFront(TInfo); // включить элемент в голову дек�
 
 void InsRear(TInfo); // включить элемент в хвост дека
 
-bool DelFront(TInfo &); // исключить элемент из головы дека
+bool DelFront(); // исключить элемент из головы дека
 
-bool DelRear(TInfo &); // исключить элемент из хвоста дека
+bool DelRear(); // исключить элемент из хвоста дека
 
 const TDeque& operator = (const TDeque &);// оператор присваивания
 
@@ -91,6 +91,22 @@ inline void TDeque<TInfo>::Clone(const TDeque & rhs)
 }
 
 template <typename TInfo>
+inline void TDeque<TInfo>::DeleteItem(TDequeItem * ptr)
+{
+    TDequeItem* slow = front;
+    TDequeItem* fast = front->next;
+    while(fast != ptr && fast != nullptr)
+    {
+        slow = slow->next;
+        fast= fast->next;
+    }
+    if(fast == nullptr)
+    {
+        throw std::runtime_error ("")
+    }
+}
+
+template <typename TInfo>
 inline TDeque<TInfo>::TDeque() : size(0), front(nullptr), rear(nullptr)
 {}
 
@@ -104,10 +120,17 @@ template <typename TInfo>
 inline void TDeque<TInfo>::Print()
 {
  TDequeItem* temp = front;
-    while(temp != nullptr)
+    if(temp == nullptr)
     {
-        std::cout << temp->Info << " ";
-        temp = temp->next;
+        std::cout << "Deque is empty!";
+    }
+    else
+    {
+        while(temp != nullptr)
+        {
+            std::cout << temp->Info << " ";
+            temp = temp->next;
+        }
     }
 }
 
@@ -152,6 +175,48 @@ inline void TDeque<TInfo>::InsRear(TInfo data)
     }
 }
 
+template <typename TInfo>
+inline bool TDeque<TInfo>::DelFront()
+{   
+    if(front == rear)
+    {
+        front = nullptr;
+        rear = nullptr;
+        (--size);
+        return true;
+    }
+    if(front->next != nullptr)
+    {
+        TDequeItem* temp = front->next;
+        delete front;
+        front = temp;
+        (--size);
+        return true;
+    }
+    return false;
+}
+
+template <typename TInfo>
+inline bool TDeque<TInfo>::DelRear()
+{
+    if(front == rear)
+    {
+        front = nullptr;
+        rear = nullptr;
+        (--size);
+        return true;
+    }
+    if(rear->prev != nullptr)
+    {
+        TDequeItem* temp = rear->prev;
+        delete rear;
+        temp->next = nullptr;
+        this-> rear = temp;
+        (--size);
+        return true;
+    }
+    return false;
+}
 
 template <typename TInfo>
 inline void TDeque<TInfo>::Browse(void(TInfo)) const
