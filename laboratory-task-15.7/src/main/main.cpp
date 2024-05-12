@@ -5,6 +5,19 @@
 #include <vector>
 
 
+bool checkFile(std::ifstream & in)
+{
+    if (!in.good()) {
+		throw std::invalid_argument("File is not good !!!");
+	}
+	if (!in) {
+		throw std::ios_base::failure("File is bad !!!");
+	}
+	if (in.peek() == EOF) { 
+		throw std::runtime_error("File is empty !!!");
+	}
+	return true;
+}
 
 void fillVector(std::vector<Train>& myVector)
 {
@@ -113,6 +126,7 @@ void seekFastest(const std::vector<Train>& myVector)
 
 int main()
  {
+    try{
      std::vector<Train> myVector;
      fillVector(myVector);
      std::cout << "\n*************************************";
@@ -127,4 +141,17 @@ int main()
      printByDestNameFast(myVector);
      seekFastest(myVector);
     return 0;
+    }
+    catch(std::invalid_argument  e)
+	{
+     std::cout << e.what();
+	}
+	catch(std::runtime_error e)
+	{
+     std::cout << e.what();
+	}
+	catch(std::ios_base::failure e)
+	{
+     std::cout << e.what();
+	}
 }
