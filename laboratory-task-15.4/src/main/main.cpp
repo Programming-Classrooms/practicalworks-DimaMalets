@@ -5,7 +5,6 @@ int main()
 {
     try{
     srand(time(0));
-    setlocale(LC_ALL, ".1251");
     int16_t rows; 
     int16_t columns;
     /* 
@@ -18,7 +17,7 @@ int main()
     /* 
         Заполнение матрицы случайными числами в заданном диапазоне 
     */
-    fillMatrix(mtrx,rows,columns);
+    fillMatrixRandom(mtrx,rows,columns);
 
     /* 
         Удалить строку и столбец, на пересечении которых стоит максимальный

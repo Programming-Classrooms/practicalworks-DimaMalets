@@ -15,7 +15,7 @@ void fillSize(int16_t & rows, int16_t & columns)
     }
 }
 
-void fillMatrix(std::vector<std::vector<int>>& mtrx, int16_t rows, int16_t columns)
+void fillMatrixRandom(std::vector<std::vector<int>>& mtrx, int16_t rows, int16_t columns)
 {
     int16_t first;
     int16_t last;

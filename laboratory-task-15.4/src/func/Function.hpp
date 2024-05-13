@@ -15,7 +15,7 @@ void fillSize(int16_t &, int16_t &);
 /*
      Заполнение матрицы случайными числами в заданном диапазоне 
 */
-void fillMatrix(std::vector<std::vector<int>>&, int16_t, int16_t);
+void fillMatrixRandom(std::vector<std::vector<int>>&, int16_t, int16_t);
 
 /* 
    Удалить строку и столбец, на пересечении которых стоит максимальный
