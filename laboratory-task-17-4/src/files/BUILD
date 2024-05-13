@@ -1,5 +1,5 @@
 filegroup(
         name = "files",
-        srcs = ["text.txt"],
+        srcs = ["fish.txt","fishman1.txt","fishman2.txt","fishman3.txt"],
         visibility = ["//visibility:public"]
 )
