@@ -5,11 +5,11 @@ void checkFile(std::fstream& in)
 {
     if(!in.good())
     {
-        throw std::runtime_error("File does not exist");
+        throw std::invalid_argument("File does not exist");
     }
     if(!in)
     {
-        throw std::runtime_error("File is not open");
+       throw std::ios_base::failure("File is not open");
     }
     if(in.peek() == EOF)
     {

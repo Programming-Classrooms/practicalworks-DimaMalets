@@ -1,24 +1,26 @@
 #include "../func/Function.hpp"
 #include <gtest/gtest.h>
-#include <stdexcept>
 
 
+// Тест ввода нескольких чисел
 TEST(FillVectorTest, MultipleNumbersInput) {
     std::vector<int> container;
     std::stringstream input("1\n2\n3\nq\n");
-    std::cin.rdbuf(input.rdbuf()); 
+    std::cin.rdbuf(input.rdbuf()); // Перенаправление ввода
     fillVector(container);
     EXPECT_EQ(container.size(), 3);
 }
 
-TEST(FillVectorTest, MultipleNumbersInput) {
-    std::vector<int> container;
-    std::stringstream input("1\n2\n3\nq\n");
-    std::cin.rdbuf(input.rdbuf());
-    fillVector(container);
-    EXPECT_EQ(container.size(), 3);
+// Тест суммирования элементов вектора
+TEST(SumElementsTest, SumElements) {
+    std::vector<int> container{1, 2, 3, 4, 5};
+    testing::internal::CaptureStdout();
+    sumElements(container);
+    std::string output = testing::internal::GetCapturedStdout();
+    EXPECT_EQ(output, "Сумма элементов: 15");
 }
 
+// Тест получения размера вектора
 TEST(SizeVectorTest, SizeVector) {
     std::vector<int> container{1, 2, 3, 4, 5};
     testing::internal::CaptureStdout();
@@ -27,38 +29,11 @@ TEST(SizeVectorTest, SizeVector) {
     EXPECT_EQ(output, "\nКоличество элементов : 5");
 }
 
-
-TEST(SeekNumberTest, SeekNumber) {
-    std::vector<int> container{1, 2, 3, 4, 5};
-    std::stringstream input("3\n");
-    std::cin.rdbuf(input.rdbuf()); 
-    testing::internal::CaptureStdout();
-    seekNumber(container);
-    std::string output = testing::internal::GetCapturedStdout();
-    EXPECT_EQ(output, "\n******************************************\nВведите число для поиска: Количество 3: 1\n******************************************");
-}
-
-TEST(ReplaceEvenNumTest, ReplaceEvenNum) {
+// Тест преобразования массива по заданному интервалу
+TEST(IntervalTest, IntervalTransformation) {
     std::vector<int> container{1, 2, 3, 4, 5};
     testing::internal::CaptureStdout();
-    replacEvenNum(container);
+    interval(container);
     std::string output = testing::internal::GetCapturedStdout();
-    EXPECT_EQ(output, "\n\n******************************************\nЗаменить все числа, модуль которых есть четное число,\nна разность максимального и минимального элемента этого вектора;\n\nМаксимальный элемент = 5\nМинимальрный элемент = 1\n\nПреобразованный массив\n1 1 1 1 5 ");
-}
-
-
-TEST(DeleteRepeatTest, DeleteRepeat) {
-    std::vector<int> container{1, 2, 3, 2, 4, 5};
-    testing::internal::CaptureStdout();
-    deleteRepeat(container);
-    std::string output = testing::internal::GetCapturedStdout();
-    EXPECT_EQ(output, "\n\n******************************************\nУдалить из последовательности все равные по модулю числа, кроме первого из них\n\nПреобразованный массив\n1 2 3 4 5 ");
-}
-
-TEST(ReplaceZerosTest, ReplaceZeros) {
-    std::vector<int> container{1, 0, 3, 0, 5};
-    testing::internal::CaptureStdout();
-    replaceZeros(container);
-    std::string output = testing::internal::GetCapturedStdout();
-    EXPECT_EQ(output, "\n\n******************************************\nИзменение всех нулевых элементов на среднее арифметическое\n\nПреобразованный вектор\n1 2 3 2 5 \n******************************************");
+    EXPECT_EQ(output, "\n\n******************************************\nДобавить к каждому элементу вектора сумму всех чисел из заданного интервала этого же вектора ;\n\nВведите интервал от: 0\n до: 2\n\nПреобразованный массив\n12 12 12 4 5 \n******************************************\n");
 }
