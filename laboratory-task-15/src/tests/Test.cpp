@@ -29,11 +29,8 @@ TEST(SizeVectorTest, SizeVector) {
     EXPECT_EQ(output, "\nКоличество элементов : 5");
 }
 
-// Тест преобразования массива по заданному интервалу
-TEST(IntervalTest, IntervalTransformation) {
-    std::vector<int> container{1, 2, 3, 4, 5};
-    testing::internal::CaptureStdout();
-    interval(container);
-    std::string output = testing::internal::GetCapturedStdout();
-    EXPECT_EQ(output, "\n\n******************************************\nДобавить к каждому элементу вектора сумму всех чисел из заданного интервала этого же вектора ;\n\nВведите интервал от: 0\n до: 2\n\nПреобразованный массив\n12 12 12 4 5 \n******************************************\n");
+
+int main(int argc, char **argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }

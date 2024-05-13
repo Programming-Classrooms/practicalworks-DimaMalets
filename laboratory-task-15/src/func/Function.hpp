@@ -17,6 +17,5 @@ void interval(std::vector<int>&);
 void replacEvenNum(std::vector<int>&);
 void deleteRepeat(std::vector<int>&);
 
-
-
 #endif // Function.hpp
+

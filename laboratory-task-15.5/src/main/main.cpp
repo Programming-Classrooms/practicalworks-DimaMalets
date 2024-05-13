@@ -11,3 +11,4 @@ int main()
     createGroups(listStudents,size);
     return 0;
 }
+

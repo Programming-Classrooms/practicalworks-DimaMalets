@@ -39,3 +39,4 @@ TEST(FillSizeTest, NegativeColumnsInput) {
     std::cin.rdbuf(input.rdbuf()); // Перенаправление ввода
     ASSERT_THROW(fillSize(rows, columns), std::invalid_argument);
 }
+

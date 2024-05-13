@@ -44,7 +44,7 @@ void fillMatrixRandom(std::vector<std::vector<int>>& mtrx, int16_t rows, int16_t
 
 void deleteMax(std::vector<std::vector<int>>& mtrx, int16_t rows, int16_t columns)
 {
-    int32_t maxEl = INT32_MIN;
+    int32_t maxEl = mtrx[0][0];
     int16_t maxRows;
     int16_t maxColumns;
     for(size_t i = 0; i < rows; ++i)
