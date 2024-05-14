@@ -7,6 +7,9 @@
 #include <algorithm>
 #include <iostream>
 
+
+bool checkFile(std::ifstream &);
+
 /* Записывает улов каждого рыбака из файла */
 void readFile(std::set<std::string>&, std::ifstream&);
 

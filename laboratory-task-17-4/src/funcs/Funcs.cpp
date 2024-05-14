@@ -1,6 +1,20 @@
 #include "Funcs.hpp"
 
 
+bool checkFile(std::ifstream & in)
+{
+    if (!in.good()) {
+		throw std::invalid_argument("File is not good !!!");
+	}
+	if (!in) {
+		throw std::ios_base::failure("File is bad !!!");
+	}
+	if (in.peek() == EOF) { 
+		throw std::runtime_error("File is empty !!!");
+	}
+	return true;
+}
+
 void readFile(std::set<std::string>& mySet,std::ifstream& in)
 {
     std::string word;
@@ -71,7 +85,7 @@ void uniqueFish(const std::set<std::string>& fishAll, const std::set<std::string
         for(std::string elem: result)
         {
             std::cout << elem << " ";
-        }
+        }              
     }
     else
     {
