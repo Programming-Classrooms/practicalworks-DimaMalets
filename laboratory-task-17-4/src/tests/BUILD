@@ -6,3 +6,4 @@ cc_test(
         "//src/funcs:funcs"
     ]
 )
+

@@ -15,3 +15,4 @@ void printWords(std::multimap<std::string,int16_t>&);
 /* Проверка файла */
 bool checkFile(std::ifstream & in);
 #endif // Funcs.hpp
+

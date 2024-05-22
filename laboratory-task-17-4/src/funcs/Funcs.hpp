@@ -26,3 +26,4 @@ void fishInAll(const std::set<std::string>&, const std::set<std::string>&, const
 void uniqueFish(const std::set<std::string>&, const std::set<std::string>&, const std::set<std::string>&, const std::set<std::string>&);
 
 #endif // Funcs.hpp
+

@@ -4,3 +4,4 @@ cc_binary(
     deps = ["//src/funcs:funcs"],
     data = ["//src/files:files"]
 ) 
+

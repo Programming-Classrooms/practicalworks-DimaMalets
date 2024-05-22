@@ -49,3 +49,4 @@ bool checkFile(std::ifstream & in)
 	}
 	return true;
 }
+

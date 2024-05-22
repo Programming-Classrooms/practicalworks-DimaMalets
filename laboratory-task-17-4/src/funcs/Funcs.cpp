@@ -92,3 +92,4 @@ void uniqueFish(const std::set<std::string>& fishAll, const std::set<std::string
         std::cout << "\nПоймали всех рыбок(((";
     }
 }
+
