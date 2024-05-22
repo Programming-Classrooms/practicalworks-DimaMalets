@@ -41,6 +41,4 @@ class Author
     
 };
 
-
-
 #endif // Author.hpp

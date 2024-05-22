@@ -44,6 +44,4 @@ class Book : protected Author
 
 };
 
-
-
 #endif // Book.hpp
