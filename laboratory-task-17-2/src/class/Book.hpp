@@ -38,6 +38,10 @@ class Book : protected Author
 
      /* Вывод информации */
     void  printInfo() const;
+    
+    /* Удаление автора */
+    void deleteAuthor();
+
 };
 
 

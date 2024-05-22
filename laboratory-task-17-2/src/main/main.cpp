@@ -16,7 +16,6 @@ int main()
    a.printInfo();
    a.findByAuthor();
    a.findByTitle();
-
    }
 
    catch(std::invalid_argument e)

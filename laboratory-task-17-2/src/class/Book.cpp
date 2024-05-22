@@ -15,7 +15,8 @@ void Book::readFile(std::istream& in, int16_t count)
 }
 
 void Book::addBook()
-{
+{   
+    std::cout <<"\n\nДобавление книги";
     std::cout << "\nВведите УДК книги: ";
     if(std::cin >> this->UDK)
     {}
@@ -73,4 +74,36 @@ void Book::printInfo() const
     }
     std::cout << "\nНазвание книги: " << this->title;
     std::cout << "\nГод публикации: " << this->yearPublication;
+}
+
+void Book::deleteAuthor()
+{
+    bool flag = false;
+    std::string findSurname;
+    std::string findName;
+    std::string findPatronymic;
+    std::cout << "\nВведите фамилию автора: ";
+    std::cin >> findSurname;
+    std::cout << "\nВведите имя автора: ";
+    std::cin >> findName;
+    std::cout << "\nВведите отчество автора: ";
+    std::cin >> findPatronymic;
+    std::set<Author> temp;
+    temp = this->getAuthors();
+    for( const auto& elem: temp)
+    {
+        if(elem.getName() == findName && elem.getSurname() == findSurname && elem.getPatronymic()== findPatronymic)
+        {
+            authors.erase(elem);
+            flag = true;
+        }
+        }
+    if(!flag)
+    {
+        std::cout << "Такого автора нет в книге";
+    }
+    else
+    {
+        std::cout << " Автор был удален! " ;
+    }
 }

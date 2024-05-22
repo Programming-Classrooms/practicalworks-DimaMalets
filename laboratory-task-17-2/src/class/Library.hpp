@@ -33,6 +33,7 @@ class Library
     /* Вывод информации о всех книгах */
     void printInfo();
 
+
 };
 
 
