@@ -1,6 +1,6 @@
 
 cc_library(
-    name = "func",
+    name = "MyString",
     srcs = ["MyString.cpp"],
     hdrs = ["MyString.hpp"],
     visibility = ["//visibility:public"],

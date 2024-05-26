@@ -1,5 +1,5 @@
 #include <stdexcept>
-#include "../func/MyString.hpp"
+#include "../MyString/MyString.hpp"
 #include <gtest/gtest.h>
 
 TEST(CompoundAssignment,TestAdd)
