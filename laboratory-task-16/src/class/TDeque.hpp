@@ -2,6 +2,8 @@
 #define TDEQUE_HPP
 
 #include <iostream>
+#include <cstring>
+#include <functional>
 
 template <typename TInfo>
 class TDeque
@@ -13,16 +15,8 @@ struct TDequeItem // элемент дека
     TInfo Info; // данные
     TDequeItem* next; // указатель на следующий элемент
     TDequeItem* prev; // указатель на предыдущий элемент
-    TDequeItem(TInfo data ,TDequeItem* previ = nullptr, TDequeItem * current = nullptr):
-    Info(data), next(current), prev(previ)
-    {
-        if(previ != nullptr){
-            previ->next = this;
-        }
-        if(current != nullptr){
-            current->prev = this;
-        }
-    }
+    TDequeItem(TInfo data);// конструктор
+    ~TDequeItem();  //деструктор
 };
 /* указатели на первый и последний элементы в списке */
 TDequeItem* front; 
@@ -37,7 +31,7 @@ void Clone(const TDeque&);
 
 void DeleteItem(TDequeItem*); // удаление элемента по указателю
 
-void* PtrByIndex(unsigned)const; // указатель на элемент с заданным индексом
+TDequeItem* PtrByIndex(int16_t)const; // указатель на элемент с заданным индексом
 
 public:
 TDeque(); // конструктор
@@ -56,17 +50,45 @@ bool DelRear(); // исключить элемент из хвоста дека
 
 const TDeque& operator = (const TDeque &);// оператор присваивания
 
-const TInfo& GetByIndex(unsigned)const; // получить элемент по индексу
+const TInfo& GetByIndex(int16_t)const; // получить элемент по индексу
 
-void SetByIndex(TInfo, unsigned); // изменить элемент по индексу
+void SetByIndex(TInfo, int16_t); // изменить элемент по индексу
 
-void Browse(void(TInfo&)); // просмотр с изменением элементов
+void BrowseWithModification(std::function<void(TInfo&)>); // просмотр с изменением элементов
 
-void Browse(void(TInfo)) const; // просмотр без изменения элементов
+void BrowseWithoutModification(std::function<void(TInfo)>) const; // просмотр без изменения элементов
 };
 
 template <typename TInfo>
-inline void TDeque<TInfo>::Erase()
+TDeque<TInfo>::TDequeItem::TDequeItem(TInfo data):
+Info(data), next(nullptr), prev(nullptr)
+{}
+
+template <typename TInfo>
+TDeque<TInfo>::TDequeItem::~TDequeItem()
+{}
+
+
+template <>
+TDeque<char*>::TDequeItem::~TDequeItem()
+{
+    if(this->Info != nullptr)
+    {
+        delete [] this->Info;
+    }
+}
+
+template <>
+TDeque<char*>::TDequeItem::TDequeItem(char* data):
+next(nullptr), prev(nullptr)
+{
+    this->Info = new char[strlen(data) + 1];
+    strcpy(this->Info,data);
+}
+
+// удаление всех элементов
+template <typename TInfo>
+void TDeque<TInfo>::Erase()
 {
      TDequeItem* p  = rear;
     while(p != nullptr)
@@ -78,8 +100,9 @@ inline void TDeque<TInfo>::Erase()
     this->size =0;
 }
 
+
 template <typename TInfo>
-inline void TDeque<TInfo>::Clone(const TDeque & rhs)
+void TDeque<TInfo>::Clone(const TDeque & rhs)
 {
     TDequeItem* temp = rhs.front;
     while(temp != nullptr)
@@ -90,8 +113,9 @@ inline void TDeque<TInfo>::Clone(const TDeque & rhs)
     }
 }
 
+// удаление элемента по указателю
 template <typename TInfo>
-inline void TDeque<TInfo>::DeleteItem(TDequeItem * ptr)
+void TDeque<TInfo>::DeleteItem(TDequeItem * ptr)
 {
     TDequeItem* slow = front;
     TDequeItem* fast = front->next;
@@ -123,24 +147,48 @@ inline void TDeque<TInfo>::DeleteItem(TDequeItem * ptr)
     }
 }
 
+// указатель на элемент с заданным индексом
+template<typename Tinfo>
+typename TDeque<Tinfo>::TDequeItem* TDeque<Tinfo>::PtrByIndex(int16_t indx) const
+{
+    int16_t counter = 0;
+   TDequeItem* temp = front;
+   while(temp != nullptr && counter < indx)
+   {
+     temp =  temp->next;
+     counter++;
+   }
+   if(temp == nullptr)
+   {
+    throw std::invalid_argument ("Элемента с таким индексом нет");
+   }
+   else
+   {
+   return temp;
+   }
+}
+
+// конструктор
 template <typename TInfo>
-inline TDeque<TInfo>::TDeque() : size(0), front(nullptr), rear(nullptr)
+TDeque<TInfo>::TDeque() : size(0), front(nullptr), rear(nullptr)
 {}
 
+// конструктор копирования
 template <typename TInfo>
-inline TDeque<TInfo>::TDeque(const TDeque &rhs)
+TDeque<TInfo>::TDeque(const TDeque &rhs)
 {
     this->Clone(rhs);
 }
 
+// деструктор
 template <typename TInfo>
-inline TDeque<TInfo>::~TDeque()
+TDeque<TInfo>::~TDeque()
 {
     this->Erase();
 }
 
 template <typename TInfo>
-inline void TDeque<TInfo>::Print()
+void TDeque<TInfo>::Print()
 {
  TDequeItem* temp = front;
     if(temp == nullptr)
@@ -157,8 +205,9 @@ inline void TDeque<TInfo>::Print()
     }
 }
 
+// включить элемент в голову дека
 template <typename TInfo>
-inline void TDeque<TInfo>::InsFront(TInfo data)
+void TDeque<TInfo>::InsFront(TInfo data)
 {
     TDequeItem* newEl =  new TDequeItem(data);
     if(front == nullptr)
@@ -178,8 +227,9 @@ inline void TDeque<TInfo>::InsFront(TInfo data)
     }
 }
 
+// включить элемент в хвост дека
 template <typename TInfo>
-inline void TDeque<TInfo>::InsRear(TInfo data)
+void TDeque<TInfo>::InsRear(TInfo data)
 {
     TDequeItem* newEl =  new TDequeItem(data);
     if(front == nullptr)
@@ -190,7 +240,7 @@ inline void TDeque<TInfo>::InsRear(TInfo data)
     }
     else
     {
-        TDequeItem* temp = rear;
+        TDequeItem* temp = this->rear;
         this->rear->next = newEl;
         this->rear = newEl;
         this->rear->prev = temp;
@@ -198,8 +248,9 @@ inline void TDeque<TInfo>::InsRear(TInfo data)
     }
 }
 
+// исключить элемент из головы дека
 template <typename TInfo>
-inline bool TDeque<TInfo>::DelFront()
+bool TDeque<TInfo>::DelFront()
 {   
     if(front == rear)
     {
@@ -219,8 +270,9 @@ inline bool TDeque<TInfo>::DelFront()
     return false;
 }
 
+// исключить элемент из хвоста дека
 template <typename TInfo>
-inline bool TDeque<TInfo>::DelRear()
+bool TDeque<TInfo>::DelRear()
 {
     if(front == rear)
     {
@@ -241,16 +293,48 @@ inline bool TDeque<TInfo>::DelRear()
     return false;
 }
 
+// оператор присваивания
 template <typename TInfo>
-inline const TDeque<TInfo>& TDeque<TInfo>::operator=(const TDeque & rhs)
-{
-    return *this->Clone(rhs);
+const TDeque<TInfo>& TDeque<TInfo>::operator=(const TDeque & rhs)
+{   
+    this->Clone(rhs);
+    return *this;
 }
 
+// получить элемент по индексу
 template <typename TInfo>
-inline void TDeque<TInfo>::Browse(void(TInfo)) const
+const TInfo &TDeque<TInfo>::GetByIndex(int16_t indx) const
 {
+  return PtrByIndex(indx)->Info;
 }
 
+// изменить элемент по индексу
+template <typename TInfo>
+void TDeque<TInfo>::SetByIndex(TInfo data, int16_t indx)
+{
+   PtrByIndex(indx)->Info = data;
+}
+
+// просмотр с изменением элементов
+template <typename TInfo>
+void TDeque<TInfo>::BrowseWithModification(std::function<void(TInfo &)> func)
+{
+    TDequeItem* temp = this->front;
+    while (temp != nullptr) {
+        func(temp->Info);
+        temp = temp->next;
+    }
+}
+
+// просмотр без изменения элементов
+template <typename TInfo>
+void TDeque<TInfo>::BrowseWithoutModification(std::function<void(TInfo)> func) const
+{
+    TDequeItem* temp = this->front;
+    while (temp != nullptr) {
+    func(temp->Info);
+    temp = temp->next;
+    }
+}
 
 #endif // TDeque.hpp
