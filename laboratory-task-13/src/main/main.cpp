@@ -1,6 +1,6 @@
-#include "../func/Fraction.hpp"
-#include "../func/Mtrx.hpp"
-#include "../func/List.hpp"
+#include "../Fraction/Fraction.hpp"
+#include "../Mtrx/Mtrx.hpp"
+#include "../List/List.hpp"
 
 
 void demonstrationMethodsMtrx(){

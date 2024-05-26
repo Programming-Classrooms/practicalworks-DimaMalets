@@ -4,6 +4,8 @@ cc_test(
     srcs = ["Test.cpp"],
     deps = [
         "@googletest//:gtest_main",
-        "//src/func:func",
+        "//src/Mtrx:Mtrx",
+        "//src/Fraction:Fraction",
+        "//src/List:List"
     ]
 )
