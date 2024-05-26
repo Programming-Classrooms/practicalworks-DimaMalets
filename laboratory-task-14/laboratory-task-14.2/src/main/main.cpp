@@ -1,7 +1,8 @@
-#include"../func/Student2.hpp"
-#include"../func/AfterFirstSession.hpp"
-#include "../func/AfterYear.hpp"
+#include"../class/Student2.hpp"
+#include"../class/AfterFirstSession.hpp"
+#include "../class/AfterYear.hpp"
 
+/* Средний балл после первой сессии */
 double averageMarksAfterFirstSession(Student** arr,size_t size,size_t numberGroup)
 {
     double averageMark = 0;
@@ -22,6 +23,7 @@ double averageMarksAfterFirstSession(Student** arr,size_t size,size_t numberGrou
     return averageMark / numberStudents;
 }
 
+/* Средний балл после  года */
 double averageMarksAfterYear(Student** arr,size_t size,size_t numberGroup)
 {
     double averageMark = 0;
@@ -43,6 +45,7 @@ double averageMarksAfterYear(Student** arr,size_t size,size_t numberGroup)
     return averageMark / numberStudents2;
 }
 
+/* Случайное заполнение для первой сессии */
 void randomFillingFirst(int16_t*arr){
     for(size_t i =0; i < 4; ++i)
     {
@@ -50,6 +53,7 @@ void randomFillingFirst(int16_t*arr){
     }
 }
 
+/* Случайное заполнение для года */
 void randomFillingSecond(int16_t* arr){
 for(size_t i =0; i < 5; ++i)
     {

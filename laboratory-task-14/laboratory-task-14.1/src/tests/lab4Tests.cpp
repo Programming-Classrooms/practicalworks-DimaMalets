@@ -1,7 +1,10 @@
 
-#include <stdexcept>
+#include "../class/Professor.hpp"
+#include "../class/Student.hpp"
+
 #include <gtest/gtest.h>
-#include "../func/ContainerTrees.hpp"
+#include <stdexcept>
+
 
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);

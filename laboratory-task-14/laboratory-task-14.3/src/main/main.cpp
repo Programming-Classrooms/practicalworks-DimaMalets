@@ -1,4 +1,4 @@
-#include "../func/ContainerTrees.hpp"
+#include "../class/ContainerTrees.hpp"
 
 /* Проверка файла */
 bool checkFile(std::ifstream & in)

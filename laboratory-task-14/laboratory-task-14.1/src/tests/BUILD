@@ -4,6 +4,6 @@ cc_test(
     srcs = ["lab4Tests.cpp"],
     deps = [
         "@googletest//:gtest_main",
-        "//src/func:func",
+        "//src/class:class",
     ]
 )

@@ -1,6 +1,6 @@
-#include"../func/Student.hpp"
-#include"../func/Professor.hpp"
-#include "../func/Person.hpp"
+#include"../class/Student.hpp"
+#include"../class/Professor.hpp"
+#include "../class/Person.hpp"
 
 void menu()
 {
