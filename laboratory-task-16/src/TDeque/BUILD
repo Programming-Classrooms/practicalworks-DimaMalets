@@ -1,5 +1,5 @@
 cc_library(
-    name = "class",
+    name = "TDeque",
     hdrs = ["TDeque.hpp"],
     visibility = ["//visibility:public"],
 )

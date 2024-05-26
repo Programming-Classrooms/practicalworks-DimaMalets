@@ -3,6 +3,6 @@ cc_test(
     srcs = ["test.cpp"],
     deps = [
         "@googletest//:gtest_main",
-        "//src/class:class",
+        "//src/TDeque:TDeque",
     ]
 )

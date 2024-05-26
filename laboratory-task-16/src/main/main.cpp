@@ -1,4 +1,4 @@
-#include "../class/TDeque.hpp"
+#include "../TDeque/TDeque.hpp"
 
 
 int main()
