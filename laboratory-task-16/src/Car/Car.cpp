@@ -52,6 +52,10 @@ void CarUnderReraip::setCarBrand(std::string iCarBrand)
 
 void CarUnderReraip::setRepairPrice(double iRepairPrice)
 {
+    if(iRepairPrice < 0)
+    {
+        throw std::invalid_argument ("Цена не может быть отрицательной");
+    }
     this->repairPrice = iRepairPrice;
 }
 
@@ -62,6 +66,10 @@ void CarUnderReraip::setDescriptionBreakdown(std::string iDescriptionBreakdown)
 
 void CarUnderReraip::setRepairTime(double iRepairTime)
 {
+    if(iRepairTime < 0)
+    {
+        throw std::invalid_argument ("Время не может быть отрицательным");
+    }
     this->repairTime = iRepairTime;
 }
 
@@ -82,7 +90,29 @@ void CarUnderReraip::manualFill()
     std::cout << "\nВведите цену за ремонт авто: ";
     std::cin >> this->repairPrice;
     std::cout << "\nОписание поломки(Нажмите enter в конце описания):\n";
+    std::cin.clear();
+    std::cin.ignore();
     getline(std::cin,this->descriptionBreakdown);
-    std::cout << "\nВведите кол-во дней нужных для ремонта:";
+    std::cout << "\nВведите кол-во дней нужных для ремонта: ";
     std::cin >> this->repairTime;
+}
+
+// Перегрузка оператора сравнения
+bool CarUnderReraip::operator == (const CarUnderReraip &rhs)
+{
+    return (this->carBrand == rhs.carBrand && this->descriptionBreakdown == rhs.descriptionBreakdown && this->repairPrice == rhs.repairPrice && this->repairTime == rhs.repairTime) ;
+}
+
+// Перегрузка оператора вывода
+std::ostream &operator<<(std::ostream &out, const CarUnderReraip &rhs)
+{
+    out << "\nМарка авто: ";
+    out << rhs.carBrand;
+    out << "\nЦена за ремонт авто: ";
+    out << rhs.repairPrice;
+    out << "\nОписание поломки: ";
+    out << rhs.descriptionBreakdown;
+    out << "\nКол-во дней нужных для ремонта: ";
+    out << rhs.repairTime;
+    return out;
 }

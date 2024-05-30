@@ -1,21 +1,26 @@
 #include "../TDeque/TDeque.hpp"
-
+#include "../Car/Car.hpp"
 
 int main()
 {
     try
     {
-        TDeque<int> a;
-        a.InsFront(5);
-        a.InsFront(6);
-        a.InsRear(7);
-        a.InsRear(8);
-        a.DelRear();
-        a.Print();
-        a.SetByIndex(30,2);
-        TDeque<int> b;
+        TDeque<CarUnderReraip> a;
+        CarUnderReraip first;
+        first.manualFill();
+        CarUnderReraip second("bmw",1000,"test",100);
+
+        a.InsRear(first);
+        a.InsFront(second);
+
+        std::cout << "\n";
+        a.exportInStream(std::cout);
+
+        TDeque<CarUnderReraip> b;
         b = a;
-        std::cout <<std::endl << b.GetByIndex(2);
+
+        std::cout << "\n" << b[1].Info.getCarBrand();
+
         return 0;
     }
     catch(std::invalid_argument e)

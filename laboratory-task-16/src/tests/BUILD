@@ -4,5 +4,6 @@ cc_test(
     deps = [
         "@googletest//:gtest_main",
         "//src/TDeque:TDeque",
+        "//src/Car:Car"
     ]
 )

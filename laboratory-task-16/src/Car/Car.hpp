@@ -48,6 +48,12 @@ void clear();
 
 // Ручное заполнение
 void manualFill();
+
+// Перегрузка операторов сравнения
+bool operator == (const CarUnderReraip& rhs);
+
+// Перегрузка оператора вывода
+friend std::ostream& operator << (std::ostream& out, const CarUnderReraip& rhs);
 };
 
 
