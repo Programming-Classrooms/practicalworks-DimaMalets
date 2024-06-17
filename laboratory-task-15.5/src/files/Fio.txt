@@ -1,0 +1,120 @@
+Student :
+Блохин Максим Лукьевич
+Course : 4
+Group : 42
+
+Student :
+Борисов Геннадий Тихонович
+Course : 4
+Group : 41
+
+Student :
+Дадацкий Алексей Семёнович
+Course : 3
+Group : 31
+
+Student :
+Данилов Василий Еремеевич
+Course : 4
+Group : 42
+
+Student :
+Демидович Сергей Дмитриевич
+Course : 1
+Group : 11
+
+Student :
+Дмитриева Станислава Яковлевна
+Course : 1
+Group : 12
+
+Student :
+Иванкова Мария Феликсовна
+Course : 4
+Group : 42
+
+Student :
+Иванов Иван Иванович
+Course : 1
+Group : 11
+
+Student :
+Карпов Артем Леонидович
+Course : 3
+Group : 31
+
+Student :
+Кононов Елисей Игнатьевич
+Course : 3
+Group : 32
+
+Student :
+Кузьмич Игорь Николаевич
+Course : 1
+Group : 12
+
+Student :
+Леваков Арсений Александрович
+Course : 1
+Group : 11
+
+Student :
+Ляховец Роман Андреевич
+Course : 1
+Group : 12
+
+Student :
+Нестеров Дмитрий Викторович
+Course : 3
+Group : 31
+
+Student :
+Рогова Олеся Валерьяновна
+Course : 1
+Group : 11
+
+Student :
+Рябченко Алина Сергеевна
+Course : 4
+Group : 41
+
+Student :
+Семёнов Алексей Петрович
+Course : 3
+Group : 32
+
+Student :
+Смирнов Мстислав Гордеевич
+Course : 1
+Group : 12
+
+Student :
+Соловьёва Василиса Борисовна
+Course : 3
+Group : 32
+
+Student :
+Степанов Евгений Федорович
+Course : 3
+Group : 31
+
+Student :
+Таныгина Анастасия Степановна
+Course : 4
+Group : 42
+
+Student :
+Тарасов Юрий Владимирович
+Course : 4
+Group : 41
+
+Student :
+Третьякова Инга Наумовна
+Course : 4
+Group : 41
+
+Student :
+Федотов Ефрем Тихонович
+Course : 3
+Group : 32
+
